@@ -1,6 +1,7 @@
 version: "3.9"
 
 services:
+  # Zookeeper
   zookeeper:
     image: confluentinc/cp-zookeeper:7.9.1
     container_name: zookeeper
@@ -10,6 +11,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
+  # Kafka
   kafka:
     image: confluentinc/cp-kafka:7.9.1
     container_name: kafka
@@ -25,6 +27,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
 
+  # Patient DB
   patient-db:
     image: postgres:latest
     container_name: patient-db
@@ -35,8 +38,9 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - ./volumes/patient-db:/var/lib/postgresql
+      - ./sql/patient.sql:/docker-entrypoint-initdb.d/patient.sql
 
+  # Billing DB
   billing-db:
     image: postgres:latest
     container_name: billing-db
@@ -47,8 +51,9 @@ services:
     ports:
       - "5434:5432"
     volumes:
-      - ./volumes/billing-db:/var/lib/postgresql
+      - ./sql/billing.sql:/docker-entrypoint-initdb.d/billing.sql
 
+  # Auth DB
   auth-db:
     image: postgres:latest
     container_name: auth-db
@@ -59,10 +64,11 @@ services:
     ports:
       - "5435:5432"
     volumes:
-      - ./volumes/auth-db:/var/lib/postgresql
+      - ./sql/auth.sql:/docker-entrypoint-initdb.d/auth.sql
 
+  # Patient Service
   patient-service:
-    build: ./patient-service
+    build: ./patientService
     container_name: patient-service
     depends_on:
       - patient-db
@@ -75,8 +81,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: password
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
+  # Billing Service
   billing-service:
-    build: ./billing-service
+    build: ./billingservice
     container_name: billing-service
     depends_on:
       - billing-db
@@ -89,6 +96,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: password
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
+  # Auth Service
   auth-service:
     build: ./auth-service
     container_name: auth-service

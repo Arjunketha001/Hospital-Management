@@ -1,11 +1,11 @@
-package main.java.com.example.auth_service.kafka;
+package com.example.auth_service.kafka;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import com.example.auth.repository.UserRepository;
-import com.example.auth.model.User;
-import com.example.auth.dto.PatientEvent;
-import com.example.auth.dto.PatientDto;
+import com.example.auth_service.repository.UserRepository;
+import com.example.auth_service.model.User;
+import com.example.auth_service.dto.PatientEvent;
+import com.example.auth_service.dto.PatientDto;
 import java.util.UUID;
 
 @Component

@@ -1,11 +1,11 @@
-# Use Java 21
-FROM eclipse-temurin:21-jdk-alpine AS build
+# Build stage
+FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
-RUN apk add --no-cache maven bash
 COPY pom.xml .
 COPY src ./src
 RUN mvn -B -DskipTests package
 
+# Run stage
 FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar

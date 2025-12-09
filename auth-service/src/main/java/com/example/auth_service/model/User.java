@@ -1,9 +1,10 @@
-package main.java.com.example.auth_service.model;
+package com.example.auth_service.model;
 
 import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
+
 public class User {
     @Id
     @GeneratedValue

@@ -1,8 +1,8 @@
-package main.java.com.example.auth_service.controller;
+package com.example.auth_service.controller;
 
 import org.springframework.web.bind.annotation.*;
-import com.example.auth.repository.UserRepository;
-import com.example.auth.model.User;
+import com.example.auth_service.repository.UserRepository;
+import com.example.auth_service.model.User;
 import java.util.UUID;
 
 @RestController

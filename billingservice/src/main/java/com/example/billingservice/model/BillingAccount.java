@@ -1,9 +1,10 @@
-package main.java.com.example.billingservice.model;
+package com.example.billingservice.model;
 import jakarta.persistence.*;
 import java.util.UUID;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "billing_account", schema = "billing_service")
 public class BillingAccount {
     @Id
     @GeneratedValue

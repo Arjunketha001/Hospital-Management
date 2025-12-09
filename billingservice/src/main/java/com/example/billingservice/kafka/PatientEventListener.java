@@ -1,11 +1,11 @@
-package main.java.com.example.billingservice.kafka;
+package com.example.billingservice.kafka;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import com.example.billing.dto.PatientEvent;
-import com.example.billing.dto.PatientDto;
-import com.example.billing.model.BillingAccount;
-import com.example.billing.repository.BillingAccountRepository;
+import com.example.billingservice.dto.PatientEvent;
+import com.example.billingservice.dto.PatientDto;
+import com.example.billingservice.model.BillingAccount;
+import com.example.billingservice.repository.BillingAccountRepository;
 import java.util.UUID;
 
 @Component

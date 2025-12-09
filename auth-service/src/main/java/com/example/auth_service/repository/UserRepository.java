@@ -1,7 +1,7 @@
-package main.java.com.example.auth_service.repository;
+package com.example.auth_service.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.auth.model.User;
+import com.example.auth_service.model.User;
 import java.util.UUID;
 import java.util.Optional;
 

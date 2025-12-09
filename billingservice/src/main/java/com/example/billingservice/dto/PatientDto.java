@@ -1,4 +1,4 @@
-package main.java.com.example.billingservice.dto;
+package com.example.billingservice.dto;
 public class PatientDto {
     private String id;
     private String name;

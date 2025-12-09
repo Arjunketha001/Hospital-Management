@@ -1,8 +1,8 @@
-package main.java.com.example.billingservice.controller;
+package com.example.billingservice.controller;
 
 import org.springframework.web.bind.annotation.*;
-import com.example.billing.repository.BillingAccountRepository;
-import com.example.billing.model.BillingAccount;
+import com.example.billingservice.repository.BillingAccountRepository;
+import com.example.billingservice.model.BillingAccount;
 import java.util.UUID;
 
 @RestController

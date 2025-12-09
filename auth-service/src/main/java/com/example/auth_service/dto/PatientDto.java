@@ -1,4 +1,4 @@
-package main.java.com.example.auth_service.dto;
+package com.example.auth_service.dto;
 
 
 public class PatientDto {
