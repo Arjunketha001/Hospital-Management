@@ -1,5 +1,6 @@
 package com.example.patientService.kafka;
 
+import com.example.patientService.model.Patient;
 
 public class PatientEvent {
     private String eventType;

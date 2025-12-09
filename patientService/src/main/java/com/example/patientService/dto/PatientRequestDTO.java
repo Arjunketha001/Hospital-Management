@@ -1,7 +1,9 @@
 package com.example.patientService.dto;
 
 import java.time.LocalDate;
-import com.example.patientservice.model.Patient;
+
+import com.example.patientService.model.Patient;
+
 import jakarta.validation.constraints.*;
 
 public class PatientRequestDTO {
